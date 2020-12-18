@@ -1,0 +1,99 @@
+class Game {
+  constructor(rows, cols) {
+    this.rows = rows
+    this.cols = cols
+
+    this.w = 400
+    this.h = 400
+    this.tileWidth = this.w / rows
+
+    this.scoreHeight = 50
+
+    this.paused = false
+    this.grid = new Grid(this.rows, this.cols, this.tileWidth)
+    this.moves = this.grid.moves
+
+    this.gameEnded = false
+
+  }
+
+  clone() {
+    let newGame = new Game(this.rows, this.cols)
+    newGame.grid.values = Array.from(this.grid.values)
+    newGame.grid.score = this.grid.score
+    //console.log('orig ', this)
+    //console.log('clone ', newGame)
+    return newGame
+  }
+
+  score() {
+    return this.grid.score
+  }
+
+  showScore() {
+    fill(255)
+    rect(0, 0, width, this.scoreHeight)
+    textSize(20)
+    textAlign(LEFT, CENTER)
+    fill(0)
+    text('Score: ' + this.score(), 10, this.scoreHeight/2)
+  }
+
+  showGrid () {
+    //console.log('drawing')
+
+    let colors = [color(255), color(100), color(0, 255, 0), color(0, 0, 255), color(255, 0, 0)]
+
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        const value = this.grid.values[i][j]
+        const x = this.tileWidth * j
+        const y = this.tileWidth * i + this.scoreHeight
+
+        let color
+        if (value == 0) {
+          color = 255
+        } else {
+          let inter = map(log(value), 0, 12, 0, colors.length-1)
+          //console.log('inter', inter)
+          color = lerpColors(colors, inter)
+        }
+        
+        fill(color)
+        rect(x, y, this.tileWidth, this.tileWidth, 10)
+
+        if (value != 0) {
+          fill(0)
+          textSize(30)
+          textAlign(CENTER, CENTER)
+          text(value, x + this.tileWidth/2, y + this.tileWidth/2)
+        }
+      }
+    }
+    
+  }
+
+  keyPressed() {
+    let moved = false
+    //console.log('test')
+    switch (keyCode) {
+      case RIGHT_ARROW:
+        //console.log('test2')
+        moved = this.grid.moveRight()
+        break
+      case LEFT_ARROW:
+        moved = this.grid.moveLeft()
+        break
+      case UP_ARROW:
+        moved = this.grid.moveUp()
+        break
+      case DOWN_ARROW:
+        moved = this.grid.moveDown()
+        break
+      case 32: // Space bar
+        this.paused = !this.paused
+        break
+    }
+    if (moved) this.grid.addTile()
+  }
+}
