@@ -5,7 +5,6 @@ dependencies:
     - p5
 ---
 
-
 <div id="sketch_holder">
     <script type="text/javascript" src="sketch.js"></script>
     <script type="text/javascript" src="game.js"></script>
@@ -13,4 +12,6 @@ dependencies:
     <script type="text/javascript" src="helpers.js"></script>
     <script type="text/javascript" src="searchTreeMC.js"></script>
     <script type="text/javascript" src="interface.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
 </div>
