@@ -4,6 +4,7 @@ function setupInterface(x, y) {
   button = createRadio()
   button.style('width', '200px')
   button.style('checked', '0')
+  button.parent('sketch_holder')
 
   button.position(x + 20, y + 65)
 
