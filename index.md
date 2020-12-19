@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "2048 AI"
-date:   2020-12-19
 dependencies:
     - p5
 ---
