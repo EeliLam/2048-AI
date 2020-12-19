@@ -1,5 +1,5 @@
 class Game {
-  constructor(rows, cols) {
+  constructor(rows, cols, scoreBarHeight) {
     this.rows = rows
     this.cols = cols
 
@@ -7,9 +7,11 @@ class Game {
     this.h = 400
     this.tileWidth = this.w / rows
 
-    this.scoreHeight = 50
+    this.scoreHeight = scoreBarHeight
 
+    this.AIControl = true
     this.paused = false
+
     this.grid = new Grid(this.rows, this.cols, this.tileWidth)
     this.moves = this.grid.moves
 
@@ -30,6 +32,11 @@ class Game {
     return this.grid.score
   }
 
+  showGame () {
+    this.showGrid()
+    this.showScore()
+  }
+
   showScore() {
     fill(255)
     rect(0, 0, width, this.scoreHeight)
@@ -43,6 +50,7 @@ class Game {
     //console.log('drawing')
 
     let colors = [color(255), color(100), color(0, 255, 0), color(0, 0, 255), color(255, 0, 0)]
+    rectMode(CORNER)
 
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
@@ -74,26 +82,29 @@ class Game {
   }
 
   keyPressed() {
-    let moved = false
-    //console.log('test')
-    switch (keyCode) {
-      case RIGHT_ARROW:
-        //console.log('test2')
-        moved = this.grid.moveRight()
-        break
-      case LEFT_ARROW:
-        moved = this.grid.moveLeft()
-        break
-      case UP_ARROW:
-        moved = this.grid.moveUp()
-        break
-      case DOWN_ARROW:
-        moved = this.grid.moveDown()
-        break
-      case 32: // Space bar
-        this.paused = !this.paused
-        break
+    if (!this.AIControl) {
+      let moved = false
+      switch (keyCode) {
+        case RIGHT_ARROW:
+          moved = this.grid.moveRight()
+          break
+        case LEFT_ARROW:
+          moved = this.grid.moveLeft()
+          break
+        case UP_ARROW:
+          moved = this.grid.moveUp()
+          break
+        case DOWN_ARROW:
+          moved = this.grid.moveDown()
+          break
+      }
+
+      if (moved) this.grid.addTile()
+
+    } 
+    
+    if (keyCode == 32) { // Space bar
+      this.paused = !this.paused
     }
-    if (moved) this.grid.addTile()
   }
 }

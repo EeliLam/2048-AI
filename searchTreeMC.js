@@ -1,5 +1,5 @@
 function runAIGame(game, newMoveAlgorithm) {
-  if (!game.gameEnded && !game.paused) {
+  if (!game.gameEnded && game.AIControl && !game.paused) {
     let move = newMoveAlgorithm(game)
     newAIMove(game, move)
   }
