@@ -7,10 +7,10 @@ dependencies:
 
 
 <div id="sketch_holder">
-    <script src="sketch.js"></script>
-    <script src="game.js"></script>
-    <script src="grid.js"></script>
-    <script src="helpers.js"></script>
-    <script src="searchTreeMC.js"></script>
-    <script src="interface.js"></script>
+    <script type="text/javascript" src="sketch.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="grid.js"></script>
+    <script type="text/javascript" src="helpers.js"></script>
+    <script type="text/javascript" src="searchTreeMC.js"></script>
+    <script type="text/javascript" src="interface.js"></script>
 </div>
