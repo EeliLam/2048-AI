@@ -1,7 +1,7 @@
 ---
 ---
 
-<div id="sketch_holder">
+<div id="sketch_holder" style="position:relative">
     <script type="text/javascript" src="sketch.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="grid.js"></script>
