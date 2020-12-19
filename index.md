@@ -1,8 +1,4 @@
 ---
-layout: post
-title:  "2048 AI"
-dependencies:
-    - p5
 ---
 
 <div id="sketch_holder">
