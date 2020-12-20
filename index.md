@@ -6,11 +6,12 @@
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="grid.js"></script>
     <script type="text/javascript" src="helpers.js"></script>
-    <script type="text/javascript" src="searchTreeMC.js"></script>
+    <script type="text/javascript" src="ai.js"></script>
     <script type="text/javascript" src="interface.js"></script>
     
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 </div>
 
 ## How the AI works

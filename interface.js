@@ -10,7 +10,7 @@ function setupInterface(x, y, game) {
   button.position(x + 20, y + 65)
 
   button.option('mc_search_tree', `Monte Carlo search tree`).checked = true
-  button.option('search_tree', 'Classical search tree')
+  button.option('search_tree', 'Classic search tree')
   button.option('neural_network', 'Evolutive neural network')
   button.option('manual', 'Manual control')
 
@@ -43,7 +43,6 @@ To play yourself, select manual mode and play with arrow keys.
 Hotkeys:
  - pause: k or space bar
  - new game: r`
-  //let s = 'test'
   text(s, x + 20, y + 190, 200, 200)
 }
 

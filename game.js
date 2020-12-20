@@ -17,19 +17,26 @@ class Game {
 
     this.gameEnded = false
 
+    // Init neural network
+    let model = tf.sequential() // Architecture [16, 16, 16, 4]
+    model.add(tf.layers.dense({units: 16, inputShape: 16, batchSize: 1, activation: 'sigmoid'}))
+    //model.add(tf.layers.dense({units: 16, activation: 'sigmoid'}))
+    model.add(tf.layers.dense({units: 4, activation: 'softmax'}))
+    this.neural_network = model
+
   }
 
   clone() {
     let newGame = new Game(this.rows, this.cols)
     newGame.grid.values = Array.from(this.grid.values)
     newGame.grid.score = this.grid.score
-    //console.log('orig ', this)
-    //console.log('clone ', newGame)
+
     return newGame
   }
 
   reset() {
     this.grid.reset()
+    this.gameEnded = false
   }
 
   pause() {
