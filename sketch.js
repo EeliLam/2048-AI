@@ -64,6 +64,8 @@ function keyPressed() {
   //console.log(game.grid)
 
   //console.log(game.grid.operateRowToLeft([0,4,2,4]))
+
+  return false // Prevents default (arrow keys and space bar scrolling the page)
 }
 
 
