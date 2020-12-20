@@ -18,10 +18,9 @@ function setupInterface(x, y, game) {
   fixRadioDivElement(button);
 
   pauseButton = createButton('pause')
-  pauseButton.position(x + 20, y + 160)
+  pauseButton.position(x + 20, y + 165)
   pauseButton.mousePressed(() => game.paused = !game.paused)
   pauseButton.parent('sketch_holder')
-  pauseButton.style('height', '10px')
 
   resetButton = createButton('new game')
   resetButton.position(pauseButton.x + pauseButton.width, pauseButton.y)
@@ -45,7 +44,7 @@ Hotkeys:
  - pause: k or space bar
  - new game: r`
   //let s = 'test'
-  text(s, x + 20, y + 180, 200, 200)
+  text(s, x + 20, y + 190, 200, 200)
 }
 
 function getMode() {
