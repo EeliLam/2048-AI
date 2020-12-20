@@ -108,7 +108,6 @@ class Game {
       }
 
       if (moved) this.grid.addTile()
-
     } 
     
     if (keyCode == 32) { // Space bar
@@ -123,5 +122,7 @@ class Game {
         this.reset()
         break
     }
+
+    return false // Prevents default (arrow keys and space bar scrolling the page)
   }
 }
