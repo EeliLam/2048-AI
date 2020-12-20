@@ -20,10 +20,12 @@ function setupInterface(x, y, game) {
   pauseButton = createButton('pause')
   pauseButton.position(x + 20, y + 160)
   pauseButton.mousePressed(() => game.paused = !game.paused)
+  pauseButton.parent('sketch_holder')
 
   resetButton = createButton('new game')
   resetButton.position(pauseButton.x + pauseButton.width, pauseButton.y)
   resetButton.mousePressed(() => game.reset())
+  resetButton.parent('sketch_holder')
 
   
 }
