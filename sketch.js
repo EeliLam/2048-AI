@@ -110,7 +110,10 @@ function keyPressed() {
   
   //console.log(game.grid)
 
-  return false // Prevents default (arrow keys and space bar scrolling the page)
+  let prevents = [UP_ARROW, RIGHT_ARROW, DOWN_ARROW, LEFT_ARROW, 32] // 32 is space bar
+  if (prevents.includes(keyCode)) return false // Prevents default (arrow keys and space bar scrolling the page)
+
+  return true
 }
 
 
