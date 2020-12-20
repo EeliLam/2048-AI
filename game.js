@@ -28,6 +28,14 @@ class Game {
     return newGame
   }
 
+  reset() {
+    this.grid.reset()
+  }
+
+  pause() {
+    this.paused = !this.paused
+  }
+
   score() {
     return this.grid.score
   }
@@ -82,7 +90,7 @@ class Game {
   }
 
   keyPressed() {
-    if (!this.AIControl) {
+    if (!this.AIControl && !this.paused) {
       let moved = false
       switch (keyCode) {
         case RIGHT_ARROW:
@@ -104,7 +112,16 @@ class Game {
     } 
     
     if (keyCode == 32) { // Space bar
-      this.paused = !this.paused
+      this.pause()
+    }
+
+    switch (key) {
+      case 'k':
+        this.pause()
+        break
+      case 'r':
+        this.reset()
+        break
     }
   }
 }

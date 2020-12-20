@@ -1,6 +1,6 @@
 let button
 
-function setupInterface(x, y) {
+function setupInterface(x, y, game) {
   button = createRadio()
   //button.style('width', '200px')
   //button.style('vertical-align', 'top')
@@ -17,6 +17,32 @@ function setupInterface(x, y) {
   encloseEachInputLabelPairIntoASubDiv(button);
   fixRadioDivElement(button);
 
+  pauseButton = createButton('pause')
+  pauseButton.position(x + 20, y + 160)
+  pauseButton.mousePressed(() => game.paused = !game.paused)
+
+  resetButton = createButton('new game')
+  resetButton.position(pauseButton.x + pauseButton.width, pauseButton.y)
+  resetButton.mousePressed(() => game.reset())
+
+  
+}
+
+function showInterface(x, y) {
+  fill(0)
+  textAlign(CORNER)
+  rectMode(CORNER)
+  textSize(12)
+  let s = 
+`When two blocks with the same value collide, they merge into one. The goal is to achieve a block of 2048 (or higher).
+  
+To play yourself, select manual mode and play with arrow keys.
+  
+Hotkeys:
+ - pause: k or space bar
+ - new game: r`
+  //let s = 'test'
+  text(s, x + 20, y + 180, 200, 200)
 }
 
 function getMode() {

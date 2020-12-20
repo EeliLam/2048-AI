@@ -12,7 +12,7 @@ function setup() {
   game = new Game(4, 4, scoreBarHeight)
   console.log(game.grid)
 
-  setupInterface(gridWidth, scoreBarHeight)
+  setupInterface(gridWidth, scoreBarHeight, game)
 
   setMode('mc_search_tree')
 
@@ -21,6 +21,7 @@ function setup() {
 function draw() {
   background(220)
   game.showGame()
+  showInterface(gridWidth, scoreBarHeight)
 
   mode = getMode()
   //console.log('mode', mode)
@@ -44,11 +45,12 @@ function draw() {
 
     fill(255)
     rectMode(CENTER)
-    rect(gridWidth/2, scoreBarHeight + gridHeight/2, 230, 60)
+    rect(gridWidth/2, scoreBarHeight + gridHeight/2, 150, 50)
 
     fill(0)
     textAlign(CENTER)
-    text('Game paused\nPress space to continue', gridWidth/2, scoreBarHeight + gridHeight/2)
+    textSize(20)
+    text('Game paused', gridWidth/2, scoreBarHeight + gridHeight/2)
   }
 
   //game.printGrid()

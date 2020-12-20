@@ -23,13 +23,11 @@ class Grid {
     console.log('\n')
   }*/
 
-  /*showGrid() {
-    for (let i = 0; i < this.rows; i++) {
-      for (let j = 0; j < this.cols; j++) {
-        this.grid[i][j].show()
-      }
-    }
-  }*/
+  reset() {
+    this.values = new Array(this.rows).fill(0).map(() => new Array(this.cols).fill(0))
+    this.score = 0
+    this.addTiles(2)
+  }
 
   addTile() {
     let row = Math.floor(Math.random() * this.rows)
